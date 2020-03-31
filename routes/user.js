@@ -62,8 +62,8 @@ router.get("/delete", (req, res) => {
 
 ///// update user
 router.post("/update", (req, res) => {
-  const { id, email, username } = req.body;
-  User.update({ email, username }, { where: { id } })
+  const { id, username, email } = req.body;
+  User.update({ username, email }, { where: { id } })
     .then(data => {
       if (data === 1) {
         console.log("Updated successfully");

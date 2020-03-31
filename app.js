@@ -5,15 +5,17 @@ const fs = require("fs");
 
 //Database
 const db = require("./config/database");
+
 // test db
 db.authenticate()
   .then(() => console.log("db connected..."))
-  .catch(err => console.log(`ERROR### ${err}`));
+  .catch(err => console.log(`###ERROR### ${err}`));
 
 const app = express();
 // app.use(express.static(__dirname + "/public"));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
 // parse application/json
 app.use(bodyParser.json());
 

@@ -9,10 +9,10 @@ const User = db.define("user", {
   username: {
     type: Sequelize.STRING
   },
-  password: {
+  email: {
     type: Sequelize.STRING
   },
-  email: {
+  password: {
     type: Sequelize.STRING
   }
 });
