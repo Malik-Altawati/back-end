@@ -4,10 +4,10 @@ const db = require("../config/database");
 const User = require("./User");
 
 const Profile = db.define("profile", {
-  firstname: {
+  firstName: {
     type: Sequelize.STRING
   },
-  lastname: {
+  lastName: {
     type: Sequelize.STRING
   },
   img: {
@@ -19,7 +19,7 @@ const Profile = db.define("profile", {
   birhday: {
     type: Sequelize.DATE
   },
-  phonenumber: {
+  phoneNumber: {
     type: Sequelize.INTEGER
   }
 });

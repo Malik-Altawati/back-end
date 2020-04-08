@@ -151,6 +151,9 @@ function generateAccessToken(user) {
 router.post("/login", (req, res) => {
   // takes name which can be username or email and a password
   var { password, name } = req.body;
+  if (!name || !password) {
+    return res.status(200).json({ status: false, message: "name is empty" });
+  }
   User.findOne({
     where: {
       [Op.or]: [{ email: name }, { username: name }],
@@ -176,7 +179,7 @@ router.post("/login", (req, res) => {
               });
             })
             .catch((err) => {
-              console.log(err)
+              console.log(err);
             });
         } else {
           res
@@ -215,11 +218,12 @@ router.post("/logout", (req, res) => {
           status: true,
           message: "Refresh Token Deleted successfully",
         });
+      } else {
+        res.status(200).json({
+          status: false,
+          message: "No refreshToken with that user_Id",
+        });
       }
-      res.status(200).json({
-        status: true,
-        message: "No refreshToken with that user_Id",
-      });
     })
     .catch((err) => {
       console.log(err);

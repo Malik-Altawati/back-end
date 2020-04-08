@@ -11,6 +11,7 @@ const Token = require("./models/Token");
 
 //Database
 const db = require("./config/database");
+
 // test db
 db.authenticate()
   .then(() => console.log("db connected..."))
@@ -20,6 +21,7 @@ const app = express();
 // app.use(express.static(__dirname + "/public"));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
 // parse application/json
 app.use(bodyParser.json());
 
